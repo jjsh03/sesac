@@ -1,0 +1,111 @@
+<!-- emmet : 키워드로 html 구조를 잡아주는 것 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag 종류</title>
+</head>
+<body>
+    <h1>Tag 종류에 대해 알아보자</h1>
+    <h2>제목 2</h2>
+    <h3>제목 3</h3>
+    <h4>제목 4</h4>
+    <h5>제목 5</h5>
+    <h6>제목 6</h6>
+    <p>여기는 본문태그입니다!</p>
+    <br>
+    <br>
+    <br>
+    <p>여기는 본문태그입니다!</p>
+
+    <h3>오늘의 할 일</h3>
+    <!-- ul tag type attribute: disc(default), square, circle, none -->
+    <ul type="circle">
+        <li>html 공부하기</li>
+        <li>운동하기</li>
+        <li>청소하기</li>
+    </ul>
+
+    <h3>아이스 카페라떼 레시피</h3>
+    <!-- ol tag type attribute: 1(default), a, A, i, I -->
+    <!-- start attr: 시작 번호, reverse: 역순으로 -->
+    <ol type="1" start="4" reversed>
+        <li><strong>우유</strong>를 <em>180ml</em> 컵에 넣기</li>
+        <li><b>얼음</b>을 가득 넣기</li>
+        <li><i>에스프레소 샷</i>을 넣어주면</li>
+        <li><u>완성!</u> <del>맛있게 드세요!</del></li>
+    </ol>
+
+    <!-- 수평줄 태그 -->
+    <hr>
+
+    <!-- 목록 태그의 중첩 사용 -->
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+        <li>
+            양식
+            <ul>
+                <li>수제버거</li>
+                <li>파스타</li>
+            </ul>
+        </li>
+        <li>
+            한식
+            <ul>
+                <li>떡볶이</li>
+                <li>비빔밥</li>
+            </ul>
+        </li>
+        <li>
+            중식
+            <ul>
+                <li>자장면</li>
+                <li>짬뽕</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h1>img & a tag</h1>
+    <!-- 상대경로/절대경로 -->
+    <!-- 
+        .: 현재 위치
+        ..: 부모 위치
+        ./img/cat.jpg: 현재 위치헤서 img 폴더 안의 cat 파일을 찾아라 -> 상대경로
+        절대경로: root부터 시작하는 경로
+    -->
+    <!-- 상대경로로 이미지 위치 찾기 >> 추천 : 현재 위치로부터 이미지 파일을 찾아가므로! -->
+    <img src="./img/cat.jpg" alt="새싹 팜플렛" width="500">
+    <!-- 절대경로로 이미지 위치 찾기 -->
+    <img src="C:\Users\user\Documents\sesac\02-HTML\img\cat.jpg" alt="새싹 팜플렛" width="500">
+    <!-- 인터넷 주소로 이미지 설정 -->
+    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMTA3MDlfOTUg/MDAxNjI1ODM3NTc5MDQw.hdSqmA-z7McUdy-PlnTM6i480cgshWcgUWw6iRfpoLMg.jOxFW1O2cD5cCmQHrRnSR9RBN27enWmiLs8WyXlWBhog.JPEG.koce_07/IMG_7943.JPG?type=w800" alt="한교동">
+
+    <br>
+    <hr>
+    <!-- a tag target attribute: 링크가 열릴 위치 지정
+        - _self (default): 현재 탭에서 열기 
+        - _blank : 새 탭으로 열기
+    -->
+    <a href="https://www.naver.com/" >Naver로 이동하기(default)</a>
+    <a href="https://www.naver.com/" target="_blank">Naver로 이동하기</a>
+    <a href="https://www.google.com/" target="_blank"
+        title="마우스 커서를 올리면 나타남">google로 이동하기 (_blank)</a>
+
+    <!-- a 태그는 인터넷상의 주소 뿐만 아니라 폴너 내의 다른 html 문서로 이동 가능 -->
+    <a href="./html-start.html" target="_blank">html-start파일로 이동하기</a> 
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
