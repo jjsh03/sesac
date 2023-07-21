@@ -1,0 +1,32 @@
+body {
+    background-color: gray;
+}
+
+h1 {
+    text-align: center;
+    color: aqua;
+}
+
+.beach1 {
+    transform: skewY(15deg);
+    position: absolute;
+    top: 600px;
+    left: 200px;
+    z-index: 3;
+}
+
+.beach2 {
+    transform: skewY(15deg);
+    position: absolute;
+    top: 400px;
+    left: 500px;
+    z-index: 2;
+}
+
+.beach3 {
+    transform: skewY(15deg);
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    z-index: 1;
+}

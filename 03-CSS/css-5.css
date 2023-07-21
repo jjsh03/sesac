@@ -1,0 +1,77 @@
+.body1 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(68, 85, 105);
+    z-index: 1;
+  }
+  
+  .eye-white {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 8;
+  }
+  
+  .eye-black {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: 5px;
+    z-index: 10;
+  }
+  
+  .body2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(44, 44, 122);
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    z-index: 2;
+  }
+  
+  .body3 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(36, 36, 85);
+    position: absolute;
+    top: 40px;
+    left: 150px;
+    z-index: 2;
+  }
+  
+  .body4 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(87, 87, 98);
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    z-index: 5;
+  }
+  
+  .body5 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(21, 21, 182);
+    position: absolute;
+    top: 80px;
+    left: 260px;
+    z-index: 10;
+  }
+  
+  .grass {
+    position: relative;
+    z-index: 20;
+  }

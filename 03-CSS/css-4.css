@@ -1,0 +1,32 @@
+.stripes > div:nth-child(2n-1) {
+    color: white;
+    background-color: navy;
+  }
+  
+  .stripes > div:nth-child(2n) {
+    background-color: yellow;
+  }
+
+h1:hover {
+    color: red;
+}
+
+a:active {
+    background-color: blue;
+}
+
+input:focus {
+    background-color: orange;
+}
+
+[disabled] {
+    background-color: red;
+}
+
+[placeholder="이름"] {
+    background-color: orange;
+}
+
+input:not([placeholder]) {
+    background-color: blue;
+}
