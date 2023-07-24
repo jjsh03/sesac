@@ -1,0 +1,58 @@
+/* div 태그를 가지고 있음에도 display: inline: 사용시 줄바꿈 없이 inline으로 배치 */
+.d-inline1 {
+    display: inline;
+    background-color: blue;
+}
+
+
+.d-inline2 {
+    display: inline;
+    background-color: red;
+}
+
+/* display: block;은 width를 주었다해도 개행 처리 */
+.d-block1 {
+    display: block;
+    background-color: blue;
+    width: 500px;
+}
+
+.d-block2 {
+    display: block;
+    background-color: red;
+    width: 400px;
+}
+
+/* block 요소처럼 크기 지정 가능하나 같은 줄 공유 */
+.d-inline-block1 {
+    display: inline-block;
+    background-color: blue;
+}
+
+.d-inline-block2 {
+    display: inline-block;
+    background-color: red;
+    width: 200px;
+    height: 300px;
+    /* margin: 20px; */
+    /* css 단축 프로퍼티 */
+    /* margin: 20px 40px 20px 40px; 상 우 하 좌*/
+    margin: 20px 40px; /* 상하 좌우 */
+}
+
+/* display:none은 html에는 있지만 화면상에 나타나지 않으면서 공간도 사라짐 */
+.d-none {
+    display: none;
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
+
+/* visibility:hidden은 화면상에 나타나지 않으나 차지하는 공간은 존재 */
+.box {
+    visibility: hidden;
+    /* visibility: visible; */
+    background-color: violet;
+    width: 100px;
+    height: 100px;
+}
