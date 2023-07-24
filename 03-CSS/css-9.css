@@ -1,0 +1,18 @@
+p {
+    animation-name: text;
+    position: relative;
+    font-size: 30px;
+    animation-duration: 3s;
+}
+
+@keyframes text {
+    0% {
+        left: 100%;
+        width: 500%;
+    }
+
+    100% {
+        left: 0%;
+        width: 100%;
+    }
+}
