@@ -90,13 +90,18 @@ let result1, result2;
 let num = 10,
   num2 = 10;
 
-// 후위 연산자(postfix operator)
+// 후위연산자(postfix operator)
+// : 변수를 먼저 대입한 뒤에 +1(-1) 연산을 수행
 result1 = num++;
 console.log(result1); // 10
 console.log(num); // 11
 
-// 전위 연산자(prefix operator)
+// 전위연산자(prefix operator)
 // : +1(-1) 연산을 먼저 수행하고 변수에 대입
 result2 = ++num2;
 console.log(result2); // 11
 console.log(num2); // 11
+
+// +=, -= 연산자를 더 자주 씀!
+console.log((num += 1));
+console.log((num2 -= 1));
