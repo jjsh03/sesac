@@ -1,7 +1,7 @@
-console.log('connected!')
+console.log('connected!');
 
 // 변수 선언: 변수 정의
-// 변수 할당: = 연산자를 이용해 값을 넣음 
+// 변수 할당: = 연산자를 이용해 값을 넣음
 // 초기화: 변수에 처음 할당되는 순간
 
 // ### var
@@ -28,7 +28,7 @@ console.log(a2);
 // var 변수의 이상한 점
 // 변수를 선언하기 전에 값을 할당
 // -> 장점같이 보일 수도 있으나, 유지보수할 때 최악
-aa=123;
+aa = 123;
 console.log(aa);
 
 // =======================================
@@ -40,8 +40,8 @@ console.log(b); // 변수 값 출력 (7)
 
 let b2 = 77; // 변수 선언 & 할당
 // let b2 = 78; // error: 키워드 중복 선언 불가능
-b2 = 78 // 변수 값 재할당
-console.log(b2)
+b2 = 78; // 변수 값 재할당
+console.log(b2);
 
 // =======================================
 // 변수 선언 키워드 3. const
@@ -80,14 +80,14 @@ console.log(c);
 let text = '안녕하세요!';
 let text2 = 'Hi';
 let gender = 'female';
-console.log(text)
-console.log(text2)
-console.log(text + text2)
-console.log(gender)
-console.log(text + text2, "ㅋㅋ")
+console.log(text);
+console.log(text2);
+console.log(text + text2);
+console.log(gender);
+console.log(text + text2, 'ㅋㅋ');
 // 템플릿 리터럴 (es6) 백틱(`)와 달러, 괄호(${}) 조합으로 사용
 // : 문자열 내에서 변수와 상수를 간결히 표현
-console.log(`${text} 저는 Sage 입니다. 저의 성별은 ${gender}입니다`)
+console.log(`${text} 저는 Sage 입니다. 저의 성별은 ${gender}입니다`);
 
 // 2. number (숫자형)
 // : 정수, 실수
@@ -114,11 +114,10 @@ console.log(temp);
 temp = 'Hello~';
 console.log(temp);
 
-// 5. undefined 
+// 5. undefined
 // 값도 없고, 타입도 지정되지 않은 상태
 let x; // 변수 선언만 했을 때 초기 값으로 undefined 할당
 console.log(x); // undefined
-
 
 // [QUIZ] 변수
 // Q1. 코드 실행시 q1 변수는 어떤 값이 될까?
