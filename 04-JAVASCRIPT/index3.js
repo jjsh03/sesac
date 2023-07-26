@@ -224,5 +224,5 @@ let avgScore = (Number(mathScore) + Number(engScore)) / 2;
 console.log(avgScore);
 
 // +) null, undefined를 숫자로 바꾼다면?
-console.log(Number(undefined), typeof Number(undefined));
-console.log(Number(null), typeof Number(null));
+console.log(Number(undefined), typeof Number(undefined)); // Nan(Nota-number), number
+console.log(Number(null), typeof Number(null)); // 0, number
