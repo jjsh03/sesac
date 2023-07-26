@@ -119,16 +119,110 @@ console.log(temp);
 let x; // 변수 선언만 했을 때 초기 값으로 undefined 할당
 console.log(x); // undefined
 
-// [QUIZ] 변수
-// Q1. 코드 실행시 q1 변수는 어떤 값이 될까?
-let q1 = 3;
-q1 - 2;
+// 6. array (배열)
+// 배열의 이름: fruit
+// 배열의 원소(아이템): 배열 안에 있는 데이터 하나 하나
+// 배열의 위치(index): 0부터 시작
+// 배열의 길이(크기): 원소의 개수와 동일
+const fruits = ['orange', 'pineapple', 'grape', 'apple'];
+// const fruits2 = new Array('orange', 'pineapple', 'grape', 'apple'); 참고
+console.log(fruits); // fruits 배열 전체 원소 출력
+console.log(fruits[0]); // fruits 배열의 위치가 0인 원소를 출력
 
-// Q2. 다음 코드 실행시 q2 변수는 어떤 값이 될까?
-let q2 = 10;
-q2 = q2 + 5;
-q2 = q2 - 2;
+// js에서는 배열 원소의 자료형이 달라도 됨!
+const data = [1, 'allie', false, null, undefined];
+console.log(data);
 
-// Q3. 다음 코드 실행시 q3 변수는 어떤 값이 될까?
-const q3 = 1;
-q3 = q3 + 1;
+// array 안에 array 들어갈 수 있음 (중첩 가능)
+const korean = [
+  ['가', '나', '다'],
+  ['라', '마', '바'],
+  ['사', '아', '자'],
+];
+console.log(korean);
+console.log(korean[0]); //   ['가', '나', '다'],
+console.log(korean[1]);
+console.log(korean[2]);
+
+console.log(korean[0][2]); // '다'
+console.log(korean[0][0] + korean[2][2]); // '가자'
+
+// 3차원 배열
+const nums = [
+  [
+    [1, 2, 3],
+    [4, 5, 6],
+  ],
+  [
+    [7, 8, 9],
+    [10, 11, 12],
+  ],
+];
+console.log(nums[1][0][1]); // '8'
+
+// 7. object (key: value)
+const cat = {
+  name: '나비',
+  age: 1,
+  isCute: true,
+  mew: function () {
+    return '냐옹';
+  },
+};
+console.log(cat); // object 자체를 출력
+
+// object의 속성(key)에 접근하는 방법
+// (1) 점 표기법(.)
+console.log(cat.name);
+console.log(cat.age);
+console.log(cat.mew());
+// (2) 대괄호 표기법 ([])
+console.log(cat['name']);
+// key가 변숭 저장되어 있을 때 주로 사용
+const tempVal = 'name';
+console.log(cat[tempVal]); // -> cat['name']
+
+// typeof: 자료형을 확인할 수 있는 키워드
+// typeof x
+// typeof(x)
+console.log(typeof '문자'); // string
+console.log(typeof 12345); // number
+console.log(typeof 3.14); // number
+console.log(typeof true); // boolean
+console.log(typeof false); // boolean
+console.log(typeof null); // object ** js 공식적으로 인정한 언어 자체의 오류
+console.log(typeof undefined); // undefined
+console.log(typeof fruits); // object
+console.log(typeof cat); // object
+
+// 형변환
+// 1. String(): 문자로 형변환
+let str1 = true;
+let str2 = 123;
+let str3 = null;
+
+console.log(String(str1), typeof String(str1));
+console.log(String(str2), typeof String(str2));
+console.log(String(str3), typeof String(str3));
+console.log(str1.toString(), typeof str1.toString());
+
+// 2. Number(): 숫자로 형변환
+let n1 = true;
+let n2 = false;
+let n3 = '123.9';
+
+console.log(Number(n1), typeof Number(n1)); // true -> 1
+console.log(Number(n2), typeof Number(n2)); // false -> 0
+console.log(Number(n3), typeof Number(n3)); // 123.9
+console.log(parseInt(n3, 10)); // n3 값을 10의 정수(int)로 바꾸겠다 -> 123
+console.log(parseFloat(n3)); // n3 값을 실수(float)로 바꾸겠다 -> 123.9
+
+// 성적 평균 구하는 프로그램 만들기
+let mathScore = prompt('수학점수 입력');
+let engScore = prompt('영어점수 입력');
+let avgScore = (Number(mathScore) + Number(engScore)) / 2;
+console.log(avgScore);
+
+// +) null, undefined를 숫자로 바꾼다면?
+console.log(Number(undefined), typeof Number(undefined));
+console.log(Number(null), typeof Number(null));
