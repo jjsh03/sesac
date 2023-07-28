@@ -180,4 +180,15 @@ console.log(filterWords1);
 const filterWords2 = words.filter((e) => e.includes('a'));
 console.log(filterWords2); // cat, rabbit, apple -> 연산한 결과(map)에서 통과한 요소들을 모음
 const mapWords = words.map((e) => e.includes('a'));
-console.log(mapWords); // false, true, true, true, false -> 단순히 연산한 결과에 대한 모음
+console.log(mapWords); // false, true, true, true, false -> Str을 단순히 연산한(t/f) 반환 결과에 대한 모음
+
+/////////////////////
+// for in 반복문
+// 객체의 key를 반복할 수 있는 구문
+
+const me = { name: 'sage', gender: 'f', hobby: 'book' };
+for (let key in me) {
+  console.log(key, me[key]);
+  // key: key
+  // value: me[key]
+}
