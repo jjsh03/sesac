@@ -1,0 +1,23 @@
+@media (max-width: 300px) {
+  body {
+    background-color: orange;
+  }
+}
+
+@media (min-width: 500px) {
+  body {
+    background-color: skyblue;
+  }
+}
+
+@media (min-height: 500px) {
+  p {
+    background-color: green;
+  }
+}
+
+@media (max-height: 300px) {
+  p {
+    font-family: 'gulim';
+  }
+}

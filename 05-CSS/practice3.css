@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+li {
+  list-style: none;
+  margin: 10px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+header {
+  height: 100px;
+  display: flex;
+  background-color: rgb(150, 224, 251);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+ul {
+  display: flex;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: 60px;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  ul {
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(220, 243, 251);
+    width: 100%;
+    top: 100%;
+  }
+}

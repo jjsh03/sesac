@@ -1,0 +1,27 @@
+.box {
+  display: flex;
+}
+
+.box .item {
+  border: 2px solid red;
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
+}
+
+@media (min-width: 700px) {
+  .box .item {
+    background-color: black;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 699px) {
+  .box {
+    flex-direction: column;
+  }
+  .box .item {
+    background-color: skyblue;
+    border-radius: 10px;
+  }
+}
