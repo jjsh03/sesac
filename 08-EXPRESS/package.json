@@ -1,0 +1,15 @@
+{
+  "name": "08-express",
+  "version": "1.0.0",
+  "description": "익스프레스를 활용한 서버 생성",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
