@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>main page</title>
+    <%- include('./includes/head', {title: '홈'}) %>
   </head>
   <body>
+    <%- include('./includes/header') %> <% const userID = 'apple'; %>
     <h1>Hello! Express!</h1>
-    <p>안녕하세용~</p>
-    <% for (let i=0; i<5; i++) { %>
+    <p>안녕하세용~ <%= userID%>님! 환영합니다!</p>
+    <p><%= userID%>님의 password는 <%= userPW%>입니다</p>
+    <% for (let i = 0; i < 5; i++) { %>
     <div>배고팡ㅠㅠ</div>
+    <% } %> <% for (let btn of btns) {%>
+    <button type="button" class="btn btn-primary">버튼 <%= btn %></button>
+    <% } %>
+
+    <br />
+    <span><%= me.name%></span>
+    <span><%= me.msg%></span>
+
+    <br />
+    <% if (!isLogin) { %>
+    <h4>아직 로그인을 하셨군요!</h4>
+    <% } else { %>
+    <h4>로그인을 하지 않으셨군요!</h4>
     <% } %>
   </body>
 </html>

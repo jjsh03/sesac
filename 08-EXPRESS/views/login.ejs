@@ -36,16 +36,18 @@
         color: lightblue;
       }
     </style>
+    <%- include('./includes/head', {title: '로그인'}) %>
   </head>
   <body>
+    <%- include('./includes/header') %>
     <div>
       <form method="post" id="loginForm">
         <h1>Login</h1>
         <input type="text" name="userName" placeholder="Email" />
         <input type="password" name="userPassword" placeholder="Password" />
       </form>
-      <input type="submit" class="input" value="login" />
-      <input type="button" class="input" value="register" />
+      <button type="button" class="btn btn-primary">login</button>
+      <button type="button" class="btn btn-primary">register</button>
     </div>
   </body>
 </html>
