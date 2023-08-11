@@ -2,8 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 
+console.log(__dirname); // C:\Users\user\Documents\sesac\08-EXPRESS
+console.log(__dirname + '/static'); // C:\Users\user\Documents\sesac\08-EXPRESS\static
+
 app.set('view engine', 'ejs'); // express 템플릿 엔진 종류 등록
 app.set('views', './views'); // 템플릿 엔진 파일을 저장할 위치 등록
+// ㄴstatic 미들 웨어 등록
+app.use('/public', express.static(__dirname + '/static'));
 
 // (임시) 데이터베이스에서 가져온 회원 정보(id, pw)
 const idFromDB = 'banana';
