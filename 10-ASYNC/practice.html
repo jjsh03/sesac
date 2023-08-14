@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise 실습</title>
+  </head>
+  <body>
+    <h1>우우우~~~~</h1>
+    <script>
+      function changeColor(color) {
+        return new Promise(function (res, rej) {
+          setTimeout(() => {
+            document.body.style.backgroundColor = color;
+            res();
+          }, 1000);
+        });
+      }
+
+      changeColor('red')
+        .then(function () {
+          return changeColor('orange');
+        })
+        .then(function () {
+          changeColor('yellow');
+        })
+        .then(function () {
+          changeColor('green');
+        })
+        .then(function () {
+          changeColor('blue');
+        });
+    </script>
+  </body>
+</html>
