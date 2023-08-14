@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습: 폼 정보받기</title>
+    <style>
+      div {
+        border: 1px solid gray;
+        margin-top: 10px;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/formResult" method="get">
+      <label for="name">이름</label><input type="text" name="name" />
+      <div>
+        <p>성별</p>
+        <input type="radio" name="gender" value="M" /> Male
+        <input type="radio" name="gender" value="F" /> Female
+      </div>
+      <div>
+        <p>생년월일</p>
+        <select name="year">
+          <option value="0">1996</option>
+          <option value="1">1995</option>
+          <option value="2">1994</option>
+          <option value="3">1993</option>
+        </select>
+        <span>년</span>
+        <select name="month">
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+        </select>
+        <span>월</span>
+        <select name="day">
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+        </select>
+        <span>일</span>
+      </div>
+      <div>
+        <p>관심사</p>
+        <input type="checkbox" name="hobby" value="trip" />여행
+        <input type="checkbox" name="hobby" value="fashion" />패션
+        <input type="checkbox" name="hobby " value="food" />음식<br />
+      </div>
+      <br />
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>
