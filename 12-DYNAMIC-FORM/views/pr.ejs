@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>실습1</h1>
+    <form name="register">
+      <label for="username">이름</label>
+      <input type="text" name="username" id="username" />
+      <br />
+
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="male" value="male" checked />
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="female" />
+        <label for="female">여자</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="birthYear" id="year">
+          <% for (let i=1980; i<2023; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="birthMonth" id="month">
+          <% for (let i=1; i<13; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="birthDay" id="day">
+          <% for (let i=1; i<32; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>관심사</legend>
+        <input
+          type="checkbox"
+          name="hobby"
+          id="travle"
+          value="travel"
+          checked
+        />
+        <label for="travle">여행</label>
+        <input type="checkbox" name="hobby" id="fashion" value="fashion" />
+        <label for="fashion">패션</label>
+        <input type="checkbox" name="hobby" id="food" value="food" />
+        <label for="food">음식</label>
+      </fieldset>
+      <br />
+
+      <button type="button" onclick="enter()">회원가입</button>
+    </form>
+    <div class="result"></div>
+    <hr />
+    <h1>실습2</h1>
+    <form name="login">
+      <label for="userId">아이디</label>
+      <input type="text" id="userId" name="userId" required="" />
+      <label for="userPw">비밀번호</label>
+      <input type="password" id="userPw" name="userPw" required="" />
+      <button type="button" onclick="clickLogin()">로그인</button>
+    </form>
+    <div class="loginResult"></div>
+  </body>
+  <script>
+    const resultBox = document.querySelector('div.result');
+    const form = document.forms['register'];
+    const data = {
+      name: form.name.value,
+      gender: form.gender.value,
+    };
+
+    async function enter() {
+      console.log('회원가입!');
+      const form = document.forms['register'];
+      const data = {
+        name: form.username.value,
+      };
+
+      try {
+        const response = await axios({
+          method: 'get',
+          url: '/register',
+          params: data,
+        });
+        const { name } = response.data;
+        console.log(response.data);
+        resultBox.textContent = `${name}님 회원가입 완료되었습니다!🌟`;
+      } catch (error) {
+        resultBox.textContent = `회원가입 불가능! 다시 확인해주세요!`;
+        console.log('Error!', error);
+      }
+    }
+
+    const loginForm = document.forms['login'];
+    const loginResult = document.querySelector('div.loginResult');
+
+    async function clickLogin() {
+      console.log('login 시도');
+      const form = document.forms['login'];
+      const inputData = {
+        id: document.querySelector('#userId').value,
+        pw: document.querySelector('#userPw').value,
+      };
+      try {
+        const res = await axios({
+          method: 'POST',
+          url: '/login',
+          data: inputData,
+        });
+
+        const userID = 'cat';
+        const userPW = 'lover';
+
+        const { id, pw } = res.data;
+        if (id === userID && pw === userPW) {
+          loginResult.textContent = `${id}님 반갑습니다!❣`;
+        } else {
+          loginResult.textContent = `아이디 또는 패스워드 오류`;
+        }
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+  </script>
+</html>
