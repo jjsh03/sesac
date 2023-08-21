@@ -31,6 +31,7 @@ const uploadDetail = multer({
 
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
+app.use('/Uploads', express.static(__dirname + '/uploads'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -85,6 +86,12 @@ app.post(
     res.send('하나의 인풋에 여러 파일 업로드 완료!');
   }
 );
+
+// 동적 폼 전송
+app.post('/dynamicFile', uploadDetail.single('dynamicUserfile'), (req, res) => {
+  console.log(req.file);
+  res.send(req.file);
+});
 
 app.listen(PORT, function () {
   console.log(`Port ${PORT} is opening!`);
