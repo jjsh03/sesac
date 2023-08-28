@@ -10,4 +10,6 @@ router.get('/', controller.main);
 // GET /visitor => localhost:PORT/visitor
 router.get('/visitors', controller.getVisitors);
 
+router.post('/visitor', controller.postVisitor);
+
 module.exports = router;

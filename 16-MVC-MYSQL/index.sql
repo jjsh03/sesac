@@ -29,3 +29,4 @@ flush privileges;
 show databases;
 select * from mysql.user;
 
+insert into visitor values ('3', '이수현', '안뇽~');
