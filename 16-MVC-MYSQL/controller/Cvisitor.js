@@ -27,3 +27,13 @@ exports.postVisitor = (req, res) => {
     res.send({ id: insertId, name: req.body.name, comment: req.body.comment });
   });
 };
+
+exports.deleteVisitor = (req, res) => {
+  console.log(req.body); // {id: xx}
+  const { id } = req.body;
+
+  Visitor.deleteVisitor(id, (result) => {
+    console.log('controller >>', result); // result: Visitor callback에 들어있는 true
+    res.send(result); // res.send(true)
+  });
+};
