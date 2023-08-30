@@ -17,7 +17,7 @@ const conn = mysql.createConnection({
 });
 
 exports.getVisitors = (callback) => {
-  conn.query(`SELECT * FROM visitor`, (err, rows) => {
+  conn.query(`SELECT * FROM visitor order by id desc`, (err, rows) => {
     if (err) {
       throw err;
     }
@@ -54,5 +54,30 @@ exports.deleteVisitor = (id, callback) => {
 
     console.log('model >>', rows);
     callback(true); // {id: id}로 쓸 수도 있음
+  });
+};
+
+exports.getVisitor = (id, callback) => {
+  conn.query(`select * from visitor where id = ${id}`, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log(rows); //  [ {} ]
+    callback(rows[0]);
+  });
+};
+
+exports.updateVisitor = (updateData, callback) => {
+  console.log(updateData);
+  const { id, name, comment } = updateData;
+  const sql = `update visitor set name='${name}', comment='${comment}' where id=${id}`;
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log(rows);
+    callback();
   });
 };
