@@ -38,7 +38,9 @@ function createVisitor() {
     // $('tbody').append(newVisitor);
 
     // js
-    tbody.insertAdjacentHTML('afterbegin', newVisitor);
+    tbody.insertAdjacentHTML('beforeend', newVisitor);
+
+    editCancel();
   });
 
   // res: id, name, comment

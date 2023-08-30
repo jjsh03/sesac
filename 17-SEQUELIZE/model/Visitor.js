@@ -17,7 +17,7 @@ const conn = mysql.createConnection({
 });
 
 exports.getVisitors = (callback) => {
-  conn.query(`SELECT * FROM visitor order by id desc`, (err, rows) => {
+  conn.query(`SELECT * FROM visitor order`, (err, rows) => {
     if (err) {
       throw err;
     }
