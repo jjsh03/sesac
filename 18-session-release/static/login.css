@@ -1,0 +1,43 @@
+/* TODO: CSS 꾸미기 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  background-color: #1bbc9b;
+}
+
+.login-box {
+  margin: auto;
+  width: 300px;
+  background-color: #eeeff1;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+}
+
+.in {
+  margin-bottom: 10px;
+}
+
+#btn {
+  background-color: #1bbc9b;
+  margin-bottom: 30px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #9b9b9b;
+  font-size: 12px;
+}
