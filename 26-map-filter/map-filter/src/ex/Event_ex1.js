@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './ex1.css';
 
 export default function Event_ex1() {
@@ -9,9 +9,15 @@ export default function Event_ex1() {
 
   const [inputWriter, setInputWriter] = useState('');
   const [inputTitle, setInputTitle] = useState('');
+  const writerRef = useRef();
+  const titleRef = useRef();
 
   const addContent = () => {
-    if (inputWriter.trim().length === 0 || inputTitle.trim().length === 0) {
+    if (inputWriter.trim().length === 0) {
+      writerRef.current.focus();
+      return;
+    } else if (inputTitle.trim().length === 0) {
+      titleRef.current.focus();
       return;
     }
 
@@ -47,6 +53,7 @@ export default function Event_ex1() {
           onChange={(e) => {
             setInputWriter(e.target.value);
           }}
+          ref={writerRef}
         />
         <label htmlFor="title">제목: </label>
         <input
@@ -58,6 +65,7 @@ export default function Event_ex1() {
             setInputTitle(e.target.value);
           }}
           onKeyDown={(e) => handleKeyDown(e)}
+          ref={titleRef}
         />
         <button onClick={addContent}>작성</button>
       </fieldset>
