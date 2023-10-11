@@ -1,0 +1,22 @@
+/* CSS Module styling */
+.container {
+  display: flex;
+  border: 3px solid rgb(116, 124, 227);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.red {
+  background-color: rgb(252, 184, 243);
+}
+
+.orange {
+  background-color: rgb(173, 230, 244);
+}
+
+.yellow {
+  background-color: rgb(253, 253, 178);
+}
