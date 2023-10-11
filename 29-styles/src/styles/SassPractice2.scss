@@ -1,0 +1,59 @@
+$color-first: pink;
+$color-second: yellow;
+$color-third: green;
+
+@mixin rotate($move) {
+  @keyframes move#{$move} {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: #{$move};
+      left: 0;
+    }
+    50% {
+      top: #{$move};
+      left: #{$move};
+    }
+    75% {
+      top: 0;
+      left: #{$move};
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+  animation: move#{$move} 4s infinite;
+}
+
+@mixin circle() {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.mixin {
+  position: relative;
+
+  .circle {
+    @include circle();
+
+    &.pink {
+      background-color: $color-first;
+      @include rotate(100px);
+    }
+
+    &.yellow {
+      background-color: $color-second;
+      @include rotate(200px);
+    }
+
+    &.green {
+      background-color: $color-third;
+      @include rotate(300px);
+    }
+  }
+}

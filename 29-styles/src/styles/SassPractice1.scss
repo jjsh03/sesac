@@ -1,0 +1,58 @@
+.worm {
+  .body {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+
+    &.body1 {
+      background-color: rgb(68, 85, 105);
+      left: 30px;
+    }
+
+    &.body2 {
+      background-color: rgb(44, 44, 122);
+      top: 50px;
+      left: -10px;
+    }
+
+    &.body3 {
+      background-color: rgb(36, 36, 85);
+      top: 90px;
+      left: -50px;
+    }
+
+    &.body4 {
+      background-color: rgb(87, 87, 98);
+      top: 100px;
+      left: -70px;
+    }
+
+    &.body5 {
+      background-color: rgb(21, 21, 182);
+      top: 120px;
+      left: -100px;
+    }
+  }
+}
+
+.eye-white {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  z-index: 1;
+}
+
+.eye-black {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  top: 5px;
+  z-index: 2;
+}
