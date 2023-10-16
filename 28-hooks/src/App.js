@@ -5,6 +5,7 @@ import UseMemoEx from './Components/UseMemoEx';
 import UseReducerEx from './Components/UseReducerEx';
 import Form from './Components/react-hook-form/Form';
 import FormPractice from './Components/react-hook-form/FormPractice';
+import LoginForm from './Components/react-hook-form/LoginForm';
 import useTitle from './hooks/useTitle';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
       <hr />
 
       <FormPractice />
+      <hr />
+
+      <LoginForm />
     </div>
   );
 }
