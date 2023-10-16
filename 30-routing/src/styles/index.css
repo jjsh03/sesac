@@ -1,0 +1,26 @@
+.Main {
+  background-color: #ddd;
+  height: 100vh;
+}
+
+.Main.Dark {
+  background-color: #333;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+header .menus {
+  display: flex;
+}
+
+header .menus li {
+  margin-left: 10px;
+  list-style: none;
+}
