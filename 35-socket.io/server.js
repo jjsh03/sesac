@@ -22,20 +22,23 @@ io.on('connection', (socket) => {
   // socket.id: 소켓 고유 아이디 (브라우저 탭 단위)
 
   // [실습1]
-  socket.on('hello', (data) => {
-    console.log(`${data.who}: ${data.msg}`);
-    socket.emit('helloKr', { who: 'hello', msg: '안녕!!' });
-  });
+  //   socket.on('hello', (data) => {
+  //     console.log(`${data.who}: ${data.msg}`);
+  //     socket.emit('helloKr', { who: 'hello', msg: '안녕!!' });
+  //   });
 
-  socket.on('study', (data) => {
-    console.log(`${data.who}: ${data.msg}`);
-    socket.emit('studyKr', { who: 'study', msg: '공부합시다!' });
-  });
+  //   socket.on('study', (data) => {
+  //     console.log(`${data.who}: ${data.msg}`);
+  //     socket.emit('studyKr', { who: 'study', msg: '공부합시다!' });
+  //   });
 
-  socket.on('bye', (data) => {
-    console.log(`${data.who}: ${data.msg}`);
-    socket.emit('byeKr', { who: 'bye', msg: '잘가!!!' });
-  });
+  //   socket.on('bye', (data) => {
+  //     console.log(`${data.who}: ${data.msg}`);
+  //     socket.emit('byeKr', { who: 'bye', msg: '잘가!!!' });
+  //   });
+
+  // [실습3] 채팅창 입장 안내
+  io.emit('notice', `${socket.id}님이 입장하셨습니다.`);
 });
 
 server.listen(PORT, () => {

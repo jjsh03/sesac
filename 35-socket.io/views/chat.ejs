@@ -6,15 +6,123 @@
     <title>socket.io 채팅</title>
     <!-- cdn -->
     <script src="/socket.io/socket.io.js"></script>
-    <style></style>
+    <style>
+      .chat-box {
+        width: 400px;
+        height: 500px;
+        background-color: #f3f3f3;
+        border-radius: 15px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .chat-list {
+        padding: 10px;
+        overflow-y: auto;
+      }
+
+      .chat-list p {
+        text-align: center;
+        color: darkblue;
+        font-size: small;
+        font-style: italic;
+      }
+
+      .my-chat {
+        align-items: flex-end;
+      }
+
+      .other-chat {
+        align-items: flex-start;
+      }
+
+      .my-chat,
+      .other-chat {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .my-chat div {
+        background-color: rgb(5, 115, 193);
+        color: #fff;
+        padding: 10px;
+        border-radius: 10px 10px 0 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        word-wrap: break-word;
+        margin-bottom: 10px;
+        max-width: 70%;
+      }
+
+      .other-chat div {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px 10px 10px 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        word-wrap: break-word;
+        margin-bottom: 10px;
+        max-width: 70%;
+      }
+
+      .send-box {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sendInput {
+        border: none;
+        height: 30px;
+        width: 80%;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+
+      .sendBtn {
+        border: none;
+        width: 15%;
+        height: 32px;
+        border-radius: 5px;
+        background-color: rgb(255, 191, 28);
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <h1>My Chat</h1>
+
     <!-- [실습1] 각 버튼 누를 때 마다 서버로 메세지 보내기 -->
-    <button onclick="sayHello()">HELLO</button>
+    <!-- <button onclick="sayHello()">HELLO</button>
     <button onclick="sayStudy()">STUDY</button>
     <button onclick="sayBye()">BYE</button>
-    <p id="form-server"></p>
+    <p id="form-server"></p> -->
+
+    <!-- [실습2] 채팅 UI -->
+    <main class="chat-box">
+      <div class="chat-list">
+        <!-- 임시 대화 데이터 -->
+        <div class="my-chat">
+          <div>
+            user1: msgsssssssssssssssssssssssssssssssssssssssssssssssssssss1
+          </div>
+          <div>user1: msg2</div>
+        </div>
+        <div class="other-chat">
+          <div>user2: msg2</div>
+        </div>
+      </div>
+      <div class="send-box">
+        <input
+          type="text"
+          class="sendInput"
+          placeholder="메시지를 입력하세요."
+        />
+        <button class="sendBtn">전송</button>
+      </div>
+    </main>
 
     <script>
       let socket = io.connect(); // 소켓 사용을 위한 객체 생성
@@ -24,34 +132,41 @@
       });
 
       // [실습1]
-      function sayHello() {
-        socket.emit('hello', { who: 'client', msg: 'hello' });
-      }
-      socket.on('helloKr', (data) => {
-        console.log(`${data.who}: ${data.msg}`);
-        document.querySelector(
-          '#form-server'
-        ).textContent = `${data.who}: ${data.msg}`;
-      });
+      // function sayHello() {
+      //   socket.emit('hello', { who: 'client', msg: 'hello' });
+      // }
+      // socket.on('helloKr', (data) => {
+      //   console.log(`${data.who}: ${data.msg}`);
+      //   document.querySelector(
+      //     '#form-server'
+      //   ).textContent = `${data.who}: ${data.msg}`;
+      // });
 
-      function sayStudy() {
-        socket.emit('study', { who: 'client', msg: 'study' });
-      }
-      socket.on('studyKr', (data) => {
-        console.log(`${data.who}: ${data.msg}`);
-        document.querySelector(
-          '#form-server'
-        ).textContent = `${data.who}: ${data.msg}`;
-      });
+      // function sayStudy() {
+      //   socket.emit('study', { who: 'client', msg: 'study' });
+      // }
+      // socket.on('studyKr', (data) => {
+      //   console.log(`${data.who}: ${data.msg}`);
+      //   document.querySelector(
+      //     '#form-server'
+      //   ).textContent = `${data.who}: ${data.msg}`;
+      // });
 
-      function sayBye() {
-        socket.emit('bye', { who: 'client', msg: 'bye' });
-      }
-      socket.on('byeKr', (data) => {
-        console.log(`${data.who}: ${data.msg}`);
-        document.querySelector(
-          '#form-server'
-        ).textContent = `${data.who}: ${data.msg}`;
+      // function sayBye() {
+      //   socket.emit('bye', { who: 'client', msg: 'bye' });
+      // }
+      // socket.on('byeKr', (data) => {
+      //   console.log(`${data.who}: ${data.msg}`);
+      //   document.querySelector(
+      //     '#form-server'
+      //   ).textContent = `${data.who}: ${data.msg}`;
+      // });
+
+      socket.on('notice', (msg) => {
+        socket.emit('notice', `${socket.id}님이 입장하셨습니다.`);
+        document
+          .querySelector('.chat-list')
+          .insertAdjacentHTML('beforeend', `<p>${msg}</p>`);
       });
     </script>
   </body>
