@@ -232,6 +232,43 @@
 
         document.querySelector('#nick-list').innerHTML = options;
       });
+
+      // [실습 4] 채팅창 메세지 전송 Step 1
+      // "send" 이벤트 전송 { 닉네임, 입력창 내용 }
+      function send() {
+        socket.emit('send', {
+          nick: myNick,
+          msg: document.querySelector('.sendInput').value,
+        });
+        document.querySelector('.sendInput').value = '';
+        window.setTimeout(scroll, 50);
+      }
+      // newMessage 이벤트를 받아서 { 닉네임, 입력창 내용 }
+      // 내가 보낸 메세지: 오른쪽
+      // 다른 사람이 보낸 메세지: 왼쪽
+      socket.on('sendMsg', (data) => {
+        console.log(data);
+        if (data.nick === myNick) {
+          document.querySelector('.chat-list').insertAdjacentHTML(
+            'beforeend',
+            `<div class="my-chat">
+                <div>${data.nick} : ${data.msg}</div>
+              </div>`
+          );
+        } else {
+          document.querySelector('.chat-list').insertAdjacentHTML(
+            'beforeend',
+            `<div class="other-chat">
+                <div>${data.nick} : ${data.msg}</div>
+              </div>`
+          );
+        }
+      });
+
+      function scroll() {
+        let chatList = document.querySelector('.chat-list');
+        chatList.scrollTop = chatList.scrollHeight;
+      }
     </script>
   </body>
 </html>
