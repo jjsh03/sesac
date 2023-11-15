@@ -247,6 +247,7 @@
       // 내가 보낸 메세지: 오른쪽
       // 다른 사람이 보낸 메세지: 왼쪽
       socket.on('sendMsg', (data) => {
+        window.setTimeout(scroll, 50);
         console.log(data);
         if (data.nick === myNick) {
           document.querySelector('.chat-list').insertAdjacentHTML(
