@@ -76,7 +76,7 @@
       .sendInput {
         border: none;
         height: 30px;
-        width: 80%;
+        width: 50%;
         margin-right: 10px;
         border-radius: 5px;
       }
@@ -89,6 +89,10 @@
         background-color: rgb(255, 191, 28);
         font-weight: bold;
       }
+
+      .d-none {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -100,11 +104,23 @@
     <button onclick="sayBye()">BYE</button>
     <p id="form-server"></p> -->
 
+    <!-- [실습3-2] 닉네입 입력 폼 -->
+    <div class="entry-box">
+      <input
+        type="text"
+        id="nickname"
+        placeholder="닉네임"
+        autofocus
+        onkeypress="if(window.event.keyCode==13){join()}"
+      />
+      <button type="button" onclick="join();">입장</button>
+    </div>
+
     <!-- [실습2] 채팅 UI -->
-    <main class="chat-box">
+    <main class="chat-box d-none">
       <div class="chat-list">
         <!-- 임시 대화 데이터 -->
-        <div class="my-chat">
+        <!-- <div class="my-chat">
           <div>
             user1: msgsssssssssssssssssssssssssssssssssssssssssssssssssssss1
           </div>
@@ -112,15 +128,22 @@
         </div>
         <div class="other-chat">
           <div>user2: msg2</div>
-        </div>
+        </div> -->
       </div>
+
+      <!-- 메세지 전송 영역 -->
       <div class="send-box">
+        <select id="nick-list"></select
+        >에게
+
         <input
           type="text"
           class="sendInput"
+          id="message"
           placeholder="메시지를 입력하세요."
+          onkeypress="if(window.event.keyCode==13){send()}"
         />
-        <button class="sendBtn">전송</button>
+        <button type="button" class="sendBtn" onclick="send();">전송</button>
       </div>
     </main>
 
@@ -162,11 +185,52 @@
       //   ).textContent = `${data.who}: ${data.msg}`;
       // });
 
+      // [실습3] 채팅창 입장 문구
       socket.on('notice', (msg) => {
-        socket.emit('notice', `${socket.id}님이 입장하셨습니다.`);
+        // socket.emit('notice', `${socket.id}님이 입장하셨습니다.`);
         document
           .querySelector('.chat-list')
           .insertAdjacentHTML('beforeend', `<p>${msg}</p>`);
+      });
+
+      // [실습3-2] 채팅창 입장 문구 socket.id -> nickname
+      function join() {
+        socket.emit('setNick', document.querySelector('#nickname').value);
+      }
+
+      // [실습3-2] 채팅창 입장 문구 socket.id -> nickname
+      // 닉네임 중복: alert 띄우기
+      socket.on('error', (data) => {
+        alert(data);
+      });
+
+      // [실습3-2] 채팅창 입장 문구 socket.id -> nickname
+      // 입장 성공: 닉네임 입력창 비활성화
+      socket.on('entrySuccess', (nick) => {
+        myNick = nick; // 닉네임 저장
+        document.querySelector('#nickname').disabled = true; // 인풋 비활성화
+        document.querySelector('.entry-box > button').disabled = true; // 버튼 비활성화
+        document.querySelector('.chat-box').classList.remove('d-none'); // 채팅창 보이기
+        document.querySelector('.entry-box').classList.add('d-none'); // 닉네임 설정 안보이기
+      });
+
+      // [실습3-2] 채팅창 입장 문구 socket.id -> nickname
+      // 유저 목록 업데이트 (select 박스의 태그 개수 변경)
+      socket.on('updateNicks', (nickObj) => {
+        // nickObj: {socket.id: nick1, socket.id: nick2, ...}
+
+        let options = `<option value = "all">전체</option>`;
+
+        // TODO: nickObj 반복 돌아서 option 태그 추가
+        // option 태그의 value 속성 값는 socket.id, option태그의 컨텐츠는 nick 값
+        for (const socketId in nickObj) {
+          console.log(socketId);
+          if (nickObj.hasOwnProperty(socketId)) {
+            options += `<option value="${socketId}">${nickObj[socketId]}</option>`;
+          }
+        }
+
+        document.querySelector('#nick-list').innerHTML = options;
       });
     </script>
   </body>
