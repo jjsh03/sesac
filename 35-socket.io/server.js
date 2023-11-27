@@ -87,7 +87,14 @@ io.on('connection', (socket) => {
 
   socket.on('send', (data) => {
     console.log(data);
-    io.emit('sendMsg', data);
+    if (data.dm === 'all') {
+      io.emit('sendMsg', data);
+    } else if (data.dm !== 'all' && data.dm !== socket.id) {
+      socket.emit('dm', data);
+      io.to(data.dm).emit('dm', data);
+    } else if (data.dm !== 'all' && data.dm == socket.id) {
+      socket.emit('dm', data);
+    }
   });
 });
 
